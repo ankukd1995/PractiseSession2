@@ -28,7 +28,7 @@ public class AutosuggestionsSelections
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;  
 		js.executeScript("window.scrollBy(0,300)");
-		
+		 
 		// Entering the text
 		driver.findElement(By.id("fromPlaceName")).sendKeys("Beng");
 		Thread.sleep(1000);
