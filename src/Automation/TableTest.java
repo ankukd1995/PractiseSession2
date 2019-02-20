@@ -20,7 +20,6 @@ public class TableTest
 		
 		// Printing the runs of the all 11 player
 		WebElement table = driver.findElement(By.cssSelector("#innings_1 > div:nth-child(1)")); 
-		//int rowcount = table.findElements(By.cssSelector("div.cb-col cb-col-100 cb-scrd-itms")).size();
 		// Parent to child
 		int count = table.findElements(By.cssSelector("div[class='cb-col cb-col-100 cb-scrd-itms'] div:nth-child(4)")).size();
 		
@@ -32,13 +31,35 @@ public class TableTest
 				
 		}
 		
-		 System.out.println(sum);
-		// Child to child
-		String extras = table.findElement(By.xpath("//div[text()='Extras']/following-sibling::div")).getText();
+	
+		 // Child to child
+		 String extras = table.findElement(By.xpath("//div[text()='Extras']/following-sibling::div")).getText();
+		 
+		 // Converting the string value into the integer
 		 int extrasvalue = Integer.parseInt(extras);
-		int total =  sum+extrasvalue;
-		System.out.println(total );
-		System.out.println(table.findElement(By.xpath("//div[text()='Total']/following-sibling::div")).getText());
+		 
+		 // Adding the all the values
+		 int total =  sum+extrasvalue;
+		 
+		 //Printing the calculated total value
+		 System.out.println("Calculated total of the player:" + total );
+		 
+		 // Getting the display total value
+		 String display = table.findElement(By.xpath("//div[text()='Total']/following-sibling::div")).getText();
+		 
+		 // Converting the string value into the integer
+		 int show = Integer.parseInt(display);
+		 
+		 //Printing the Display total value
+		 System.out.println("Display total of the screen:" + show);
+		 
+		 // Checking the equality of the total
+		 if(total == show)
+		 {
+			 System.out.println("Total matches");
+		 }
+		 
+		 
 
 	} 
  
